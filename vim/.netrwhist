@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/yhy/work/src/room_svr'
+let g:netrw_dirhist_2='/home/yhy/work/src'
+let g:netrw_dirhist_3='/root/opensource/tsar/src'
+let g:netrw_dirhist_4='/root/opensource/ucmq'
