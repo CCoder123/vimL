@@ -1,3 +1,7 @@
+set nocompatible
+set ruler
+set hlsearch
+
 let g:ex_toolkit_path='~/.toolkit/'
 
 set nu
@@ -6,7 +10,13 @@ set ai
 set si
 set sw=4
 set incsearch
-set tags=/root/opensource/nginx-1.0.14_comment/tags;
+"set tags=/root/opensource/nginx-1.0.14_comment/tags;
+"set tags=~/pproj/tb-common-utils/tags;
+"set tags=~/lua/lua-5.2.3/src/tags;
+"set tags=~/muduo/muduo/tags
+"set tags=~/chaos/tags
+set tags=~/folly/folly/tags
+
 set autochdir
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
@@ -32,6 +42,8 @@ let g:neocomplcache_enable_at_startup=1
 
 call pathogen#infect()
 syntax on
+set showcmd
+set tabstop=4
 filetype plugin indent on
 
 nmap <F3> :TagbarToggle<CR>
@@ -51,3 +63,22 @@ map <C-k> :A<CR>
 "=======================================================
 set tags+=./tags
 au BufNewFile,BufRead *.cpp set syntax=cpp11
+
+
+"----Vundle Start--------
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/LisToggle'
+Bundle 'scrooloose/syntastic'
+
+filetype plugin indent on
+
+"-------Vundle End-----
+
+

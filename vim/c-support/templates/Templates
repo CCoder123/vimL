@@ -5,9 +5,10 @@ $ =============================================================
 $
 |AUTHOR|    = likun 
 |AUTHORREF| = likun
-|EMAIL|     = likun@163.com
-|COMPANY|   = MingYou Inc.
+|EMAIL_1|     = likunemail@163.com
+|EMAIL_2|     = likunemail@gmail.com
 |COPYRIGHT| = Copyright (c) |YEAR|, |AUTHOR|
+|TITLE| = DB System
 $
 $ =============================================================
 $ ========== FILE INCLUDES ====================================

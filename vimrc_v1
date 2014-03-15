@@ -1,0 +1,151 @@
+set nocompatible
+set ruler
+set hlsearch
+
+let g:ex_toolkit_path='~/.toolkit/'
+
+set nu
+set ts=4
+set ai
+set si
+set sw=4
+set incsearch
+"set tags=/root/opensource/nginx-1.0.14_comment/tags;
+"set tags=~/pproj/tb-common-utils/tags;
+"set tags=~/lua/lua-5.2.3/src/tags;
+"set tags=~/muduo/muduo/tags
+"set tags=~/chaos/tags
+set tags=~/folly/folly/tags
+
+set autochdir
+
+set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
+
+colorscheme darkblue
+
+let Tlist_Exit_OnlyWindow=1
+let	Tlist_Show_One_File=1
+map <F3> :Tlist<CR>
+
+set completeopt=menu,menuone
+let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_DisplayMode=1
+let OmniCpp_DefaultNamespaces=["std"]
+
+let g:neocomplcache_enable_at_startup=1 
+
+call pathogen#infect()
+syntax on
+set showcmd
+set tabstop=4
+filetype plugin indent on
+
+nmap <F3> :TagbarToggle<CR>
+let g:tagbar_left=1
+let g:tagbar_width = 40       "设置宽度，默认为40
+"autocmd VimEnter * nested :call tagbar#autoopen(1)    "打开vim时自动打开tagbar
+
+filetype plugin indent on
+
+map <F2> :NERDTree<CR>
+map <F5> :UpdateTypesFile<CR>
+map <F4> :q<CR>
+map <C-d> :cw<CR>
+map <C-k> :A<CR>
+
+
+"=======================================================
+set tags+=./tags
+au BufNewFile,BufRead *.cpp set syntax=cpp11
+
+
+
+"进行版权声明的设置 
+"添加或更新头 
+map <F4> ms:call TitleDet()<cr>'s 
+function AddTitle() 
+	call append(0,"//#####################################################") 
+	call append(1,"//#") 
+	call append(2,"//#                Author: ZhuShuai") 
+	call append(3,"//#") 
+	call append(4,"//#                Mail: bjzhush@gmail.com     ") 
+	call append(5,"//#") 
+	call append(6,"//# Last modified: ".strftime("%Y-%m-%d %H:%M")) 
+	call append(7,"//#") 
+	call append(8,"//#            Filename: ".expand("%:t")) 
+	call append(9,"//#") 
+	call append(10,"//#") 
+	call append(11,"//#") 
+	call append(12,"//####################################################") 
+	echohl WarningMsg | echo "Add copyright Over." | echohl None 
+endf
+
+
+function AddTitle2() 
+	call append(0,"/*")
+ 	call append(1," *  The implementation of mutating algorithm.")
+ 	call append(2," *  Copyright (C)  2008 - 2013  Wangbo")
+ 	call append(3," *")
+ 	call append(4," *  This library is free software; you can redistribute it and/or")
+ 	call append(5," *  modify it under the terms of the GNU Lesser General Public")
+ 	call append(6," *  License as published by the Free Software Foundation; either")
+ 	call append(7," *  version 2.1 of the License, or (at your option) any later version.")
+ 	call append(8," *")
+ 	call append(9," *  This library is distributed in the hope that it will be useful,")
+ 	call append(10," *  but WITHOUT ANY WARRANTY; without even the implied warranty of")
+ 	call append(11," *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU")
+ 	call append(12," *  Lesser General Public License for more details.")
+ 	call append(13," *")
+ 	call append(14," *  You should have received a copy of the GNU Lesser General Public")
+ 	call append(15," *  License along with this library; if not, write to the Free Software")
+ 	call append(16," *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA")
+ 	call append(17," *")
+ 	call append(18," *  Author e-mail: activesys.wb@gmail.com")
+ 	call append(19," *                 activesys@sina.com.cn")
+ 	call append(20," */")
+	echohl WarningMsg | echo "Add copyright Over." | echohl None 
+endf
+
+"更新最近修改时间和文件名 
+function UpdateTitle() 
+endf
+"判断前10行代码里面，是否有Last modified这个单词， 
+"如果没有的话，代表没有添加过作者信息，需要新添加； 
+"如果有的话，那么只需要更新即可 
+function TitleDet() 
+	let n=1 
+	"默认为添加 
+	while n < 10 
+		let line = getline(n) 
+		if line =~ '^\#\s*\S*Last\smodified:\S*.*$'
+			call UpdateTitle() 
+			return
+		endif
+		let n = n + 1 
+	endwhile
+	call AddTitle2() 
+endfunction
+
+"----Vundle Start--------
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/LisToggle'
+Bundle 'scrooloose/syntastic'
+
+filetype plugin indent on
+
+"-------Vundle End-----
+
+
