@@ -5,17 +5,19 @@ set hlsearch
 let g:ex_toolkit_path='~/.toolkit/'
 
 set nu
-set ts=4
+set ts=2   "tab 设置为多少个个空格
+set sw=4
 set ai
 set si
-set sw=4
 set incsearch
 "set tags=/root/opensource/nginx-1.0.14_comment/tags;
 "set tags=~/pproj/tb-common-utils/tags;
 "set tags=~/lua/lua-5.2.3/src/tags;
+"set tags=~/skynet/tags
+set tags=~/taobao/tb-common-utils/trunk/tags
 "set tags=~/muduo/muduo/tags
 "set tags=~/chaos/tags
-set tags=~/folly/folly/tags
+"set tags=~/folly/folly/tags
 
 set autochdir
 
@@ -74,10 +76,28 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'Valloric/LisToggle'
+"Bundle 'Valloric/LisToggle'
 Bundle 'scrooloose/syntastic'
 
+"GOLANG Plugin
+Bundle 'cespare/vim-golang'
+Bundle 'Blackrush/vim-gocode'
+
+"Snippets
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+"Bundle 'garbas/vim-snipmate'
+"Bundle 'honza/vim-snippets'
+
+
 filetype plugin indent on
+
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "-------Vundle End-----
 
