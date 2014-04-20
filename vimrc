@@ -92,11 +92,12 @@ Bundle 'http://github.com/msanders/snipmate.vim'
 
 
 filetype plugin indent on
-
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
+
+let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
 
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
