@@ -86,6 +86,7 @@ Bundle 'Blackrush/vim-gocode'
 "Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
+Bundle 'http://github.com/msanders/snipmate.vim'
 "Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/vim-snippets'
 
