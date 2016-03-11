@@ -1,0 +1,4 @@
+ git clone https://github.com/gmarik/vundle.git  ~/.vim/bundle/vundle
+ 
+ 支持go语言插件：Plugin 'fatih/vim-go' 
+ 先用vim打开任意一个go源文件例如：hello.go。然后使用命令 :PluginInstall 
